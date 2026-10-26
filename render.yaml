@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: mp3-kutusu
+    runtime: docker
+    plan: free
+    healthCheckPath: /health
+    envVars:
+      # You choose this private password at deployment, then share the link with ?key=...
+      - key: APP_KEY
+        sync: false

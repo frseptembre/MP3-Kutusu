@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#15181d">
+  <meta name="description" content="YouTube videolarını izinli kullanım için MP3'e dönüştür.">
+  <meta name="robots" content="noindex, nofollow">
+  <title>MP3 Kutusu</title>
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <div class="decor decor-one" aria-hidden="true"></div>
+  <div class="decor decor-two" aria-hidden="true"></div>
+  <main class="shell">
+    <section class="panel" aria-labelledby="heading">
+      <div class="brand"><span class="brand-mark" aria-hidden="true">♫</span> MP3 KUTUSU</div>
+      <div class="hero-icon" aria-hidden="true">
+        <svg viewBox="0 0 100 100" fill="none" aria-hidden="true">
+          <rect x="26" y="34" width="8" height="32" rx="4" fill="currentColor" opacity=".45"/>
+          <rect x="39" y="22" width="8" height="56" rx="4" fill="currentColor"/>
+          <rect x="52" y="29" width="8" height="42" rx="4" fill="currentColor" opacity=".85"/>
+          <rect x="65" y="39" width="8" height="22" rx="4" fill="currentColor" opacity=".45"/>
+        </svg>
+      </div>
+      <h1 id="heading">Videonun sesini <span>al.</span></h1>
+      <p class="intro">YouTube bağlantısını yapıştır. MP3 dosyan bilgisayarına insin. Hepsi bu!</p>
+
+      <form id="converter-form" novalidate>
+        <label for="video-url">YOUTUBE BAĞLANTISI</label>
+        <div class="input-wrap">
+          <svg class="link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+          <input id="video-url" name="video-url" type="url" inputmode="url" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="https://www.youtube.com/watch?v=..." required aria-describedby="input-help">
+          <button class="paste-button" type="button" id="paste-button">Yapıştır</button>
+        </div>
+        <p class="hint" id="input-help">Tek bir video bağlantısı yeterli.</p>
+        <button id="convert-button" class="convert-button" type="submit">
+          <span class="button-label">MP3 OLARAK İNDİR</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" aria-hidden="true"><path d="M12 3v12m0 0 5-5m-5 5-5-5M5 17v3h14v-3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </form>
+
+      <div id="status" class="status" role="status" aria-live="polite" hidden>
+        <span id="status-indicator" class="status-indicator" aria-hidden="true"></span>
+        <span id="status-text"></span>
+      </div>
+
+      <div class="divider"></div>
+      <div class="destination">
+        <div class="folder-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 7a2 2 0 0 1 2-2h5l2 2h7a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7Z" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="destination-copy"><strong id="destination-name">İndirilenler klasörüne kaydedilir</strong><span id="destination-note">Başka bir ayar yapmana gerek yok.</span></div>
+        <button type="button" id="choose-folder" class="folder-button" hidden>Klasör seç</button>
+      </div>
+      <p class="legal">Lütfen yalnızca indirme iznin olan videolarda kullan.</p>
+    </section>
+    <p class="under-note">Basit olsun diye hazırlandı <span aria-hidden="true">✦</span></p>
+  </main>
+</body>
+</html>
