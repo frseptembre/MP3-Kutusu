@@ -86,7 +86,9 @@ def convert_video(url: str) -> tuple[Path, Path, str]:
             "outtmpl": str(temp_dir / "%(id)s.%(ext)s"),
             "noplaylist": True,
             "quiet": True,
-            "no_warnings": True,
+            "no_warnings": False,
+            "verbose": True,
+            "extractor_args": {"youtube": {"player_client": ["web_embedded", "tv_samsung", "web_safari"]}},
             "retries": 2,
             "fragment_retries": 2,
             "socket_timeout": 20,
@@ -97,6 +99,7 @@ def convert_video(url: str) -> tuple[Path, Path, str]:
             ],
             # Deno and yt-dlp-ejs are installed by the Docker build.
         }
+        logger.warning("yt-dlp installed version: %s", getattr(getattr(yt_dlp, "version", None), "__version__", "unknown"))
         with yt_dlp.YoutubeDL(opts) as ydl:
             info = ydl.extract_info(url, download=False)
             if not isinstance(info, dict) or info.get("_type") == "playlist":
